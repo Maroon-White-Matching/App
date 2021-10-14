@@ -91,9 +91,14 @@ def delete():
     db.session.commit()
     return jsonify({"msg": "Success"}), 200
 
-@app.route("/predict", methods=["GET"])
-@jwt_required()
-def predict():
+@app.route("/retrieve", methods=["GET"])
+# @jwt_required()
+def retrieve():
+    scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+    creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+    client = gspread.authorize(creds)
+    sheet = client.open("Participant Matching Form and Bio").sheet1
+    data = sheet.get_all_records()
+    return jsonify(data), 200 
 
-    
-    return jsonify({"msg": "Success"}), 200   
+    # return jsonify({"msg": "Success"}), 200   
