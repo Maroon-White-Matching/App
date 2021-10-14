@@ -1,4 +1,3 @@
-import base64
 import gspread
 from app import app, db
 from app.models import Users
@@ -9,8 +8,10 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from oauth2client.service_account import ServiceAccountCredentials
-from pprint import pprint
 
+@app.route("/")
+def home_view():
+        return "<h1> Hello World! </h1>"
 
 @app.route("/login", methods=["POST"])
 def login():
