@@ -1,3 +1,5 @@
+import base64
+import gspread
 from app import app, db
 from app.models import Users
 from flask_cors import CORS, cross_origin
@@ -6,7 +8,9 @@ from flask import request
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
-import base64
+from oauth2client.service_account import ServiceAccountCredentials
+from pprint import pprint
+
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -87,4 +91,9 @@ def delete():
     db.session.commit()
     return jsonify({"msg": "Success"}), 200
 
+@app.route("/predict", methods=["GET"])
+@jwt_required()
+def predict():
+
     
+    return jsonify({"msg": "Success"}), 200   
