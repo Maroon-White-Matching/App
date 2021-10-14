@@ -108,3 +108,5 @@ def retrieve():
 @app.route("/predict", methods=["GET"])
 # @jwt_required()
 def predict():
+    
+    return jsonify(), 200
