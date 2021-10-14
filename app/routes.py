@@ -12,7 +12,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 @app.route("/")
 def home_view():
-        return "<h1> Hello World! </h1>"
+        return "<h1> Placeholder </h1>"
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -102,7 +102,7 @@ def retrieve():
     sheet = client.open("Participant Matching Form and Bio").sheet1
     data = sheet.get_all_records()
     df = pd.DataFrame(data)
-    df.to_csv("./lib/data/FormResponses.csv", index=False)
+    df.to_csv("./app/lib/data/FormResponses.csv", index=False)
     return jsonify(data), 200 
  
 @app.route("/predict", methods=["GET"])
