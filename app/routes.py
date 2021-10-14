@@ -1,4 +1,5 @@
 import gspread
+import pandas as pd
 from app import app, db
 from app.models import Users
 from flask_cors import CORS, cross_origin
@@ -95,11 +96,12 @@ def delete():
 @app.route("/retrieve", methods=["GET"])
 # @jwt_required()
 def retrieve():
-    scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+    scope = ["https://www.googleapis.com/auth/spreadsheets","https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
     sheet = client.open("Participant Matching Form and Bio").sheet1
     data = sheet.get_all_records()
+    df = pd.DataFrame(data)
+    df.to_csv("./lib/data/FormResponses.csv", index=False)
     return jsonify(data), 200 
-
-    # return jsonify({"msg": "Success"}), 200   
+ 
