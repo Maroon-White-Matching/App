@@ -105,3 +105,6 @@ def retrieve():
     df.to_csv("./lib/data/FormResponses.csv", index=False)
     return jsonify(data), 200 
  
+@app.route("/predict", methods=["GET"])
+# @jwt_required()
+def predict():
