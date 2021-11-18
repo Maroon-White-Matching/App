@@ -10,8 +10,8 @@ class Results extends React.Component {
 
     state = {
         id: [0,1],
-        coach: ['Loading'],
-        fellow: ['Loading'],
+        coach: [],
+        fellow: [],
     }
 
     componentDidMount() {
