@@ -33,7 +33,7 @@ class Settings extends React.Component {
         }
 
         try {
-            const resp = await fetch('https://capstonebackendthien.herokuapp.com/users', opts)
+            const resp = await fetch('https://maroon-white-backend.herokuapp.com/users', opts)
             //const resp = await fetch('http://localhost:5000/users', opts)
             const data = await resp.json()
             this.setState({
@@ -62,7 +62,7 @@ class Settings extends React.Component {
         }
 
 
-        const resp = await fetch('https://capstonebackendthien.herokuapp.com/update', opts)
+        const resp = await fetch('https://maroon-white-backend.herokuapp.com/update', opts)
         //const resp = await fetch('http://localhost:5000/update', opts)
         const respJ = await resp.json()
         this.getUsers(respJ)
@@ -89,7 +89,7 @@ class Settings extends React.Component {
             body: json
         }
 
-        const resp = await fetch('https://capstonebackendthien.herokuapp.com/delete', opts)
+        const resp = await fetch('https://maroon-white-backend.herokuapp.com/delete', opts)
         //const resp = await fetch('http://localhost:5000/delete', opts)
         const respJ = await resp.json()
         this.getUsers(respJ)
@@ -125,7 +125,7 @@ class Settings extends React.Component {
         }
 
 
-        const resp = await fetch('https://capstonebackendthien.herokuapp.com/results', opts)
+        const resp = await fetch('https://maroon-white-backend.herokuapp.com/results', opts)
         //const resp = await fetch('http://localhost:5000/results', opts)
         const respJ = await resp.json()
         this.setState({ results: respJ })

@@ -25,7 +25,7 @@ class Search extends React.Component {
             }
         }
 
-        const resp = await fetch('https://capstonebackendthien.herokuapp.com/retrieve', opts)
+        const resp = await fetch('https://maroon-white-backend.herokuapp.com/retrieve', opts)
         //const resp = await fetch('http://localhost:5000//retrieve', opts)
         const data = await resp.json()
         this.setState({

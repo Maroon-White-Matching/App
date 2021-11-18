@@ -54,7 +54,7 @@ class Login extends React.Component {
                 "password": btoa(psswd)
             })
         }
-        const resp = await fetch('https://capstonebackendthien.herokuapp.com/login', opts)
+        const resp = await fetch('https://maroon-white-backend.herokuapp.com/login', opts)
         //const resp = await fetch('http://localhost:5000/login', opts)
         const data = await resp.json()
 
@@ -90,7 +90,7 @@ class Login extends React.Component {
                 "password": btoa(psswd)
             })
         }
-        await fetch('https://capstonebackendthien.herokuapp.com/create', opts)
+        await fetch('https://maroon-white-backend.herokuapp.com/create', opts)
         //await fetch('http://localhost:5000/create', opts)
     
     }
