@@ -12,11 +12,41 @@ class Results extends React.Component {
         id: [0,1],
         coach: [],
         fellow: [],
+        OPN: 0,
+        AGR: 0,
+        CON: 0,
+        EXT: 0,
+        NEU: 0,
+        Coaches: 0,
+        Fellows: 0,
     }
 
     componentDidMount() {
         this.getMatches()
+        this.getStats()
     }
+
+    async getStats(){
+        const opts = {
+            method: 'get',
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + sessionStorage.getItem("token")
+            }
+        }
+        const resp = await fetch("https://maroon-white-backend.herokuapp.com/stats", opts)
+        const data = await resp.json()
+        this.setState({
+            OPN: data.OPN,
+            AGR: data.AGR,
+            CON: data.CON,
+            EXT: data.EXT,
+            NEU: data.NEU,
+            Coaches: data.Coaches,
+            Fellows: data.Fellows,
+        })
+    }
+    
 
     async getMatches() {
         const opts = {
@@ -68,8 +98,8 @@ class Results extends React.Component {
                 <h2>Stats</h2>
                 <br />
                 <Row>
-                    <Col><BarChart title='BarChart' val1={10} val2={10} val3={15} val4={10} val5={10}/></Col>
-                    <Col><PieChart title='PieChart' val1={10} val2={10}/></Col>
+                    <Col><BarChart title='BarChart' val1={this.state.AGR} val2={this.state.CON} val3={this.state.EXT} val4={this.state.NEU} val5={this.state.OPN}/></Col>
+                    <Col><PieChart title='PieChart' val1={this.state.Coaches} val2={this.state.Fellows}/></Col>
                 </Row>
                 <br />
                 <br />

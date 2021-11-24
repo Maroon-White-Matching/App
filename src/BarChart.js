@@ -1,11 +1,17 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
+// openness to experience (inventive/curious vs. consistent/cautious)
+// conscientiousness (efficient/organized vs. extravagant/careless)
+// extraversion (outgoing/energetic vs. solitary/reserved)
+// agreeableness (friendly/compassionate vs. critical/rational)
+// neuroticism (sensitive/nervous vs. resilient/confident)[4]
+
 const BarChart = (props) => {
   return(
         <Bar
           data = {{
-            labels: ['Easy Going', 'Organized', 'Funny', 'Outdoorsy', 'Intellectual'],
+            labels: ['Agreeableness', 'Conscientiousness', 'Extraversion', 'Neuroticism', 'Openness'],
             datasets: [{
               label: 'Top 5 Personality Types',
               data: [props.val1,props.val2,props.val3,props.val4,props.val5],
