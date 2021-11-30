@@ -113,6 +113,7 @@ class Settings extends React.Component {
     }
 
     async runAlgo() {
+        this.setState({ alert: 100 })
         let json = { "ccr": this.state.value[0].toString(), "cl": this.state.value[1].toString(), "cr": this.state.value[2].toString() }
         json = JSON.stringify(json)
         const opts = {
@@ -136,7 +137,16 @@ class Settings extends React.Component {
     displayError(prop) {
         if (this.state.alert === null && prop !== 200 && prop !== 400) {
 
-        } else if (this.state.alert === 200 || prop === 200) {
+        } else if (this.state.alert === 100 || prop === 100) {
+            return (
+                <>
+                    <br />
+                    <br />
+                    <Alert variant="secondary" title="wrongCredentialsAlert">Please wait...</Alert>
+                </>
+            )
+        }
+        else if (this.state.alert === 200 || prop === 200) {
             return (
                 <>
                     <br />
