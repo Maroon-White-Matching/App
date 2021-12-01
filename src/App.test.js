@@ -313,12 +313,12 @@ test('renders settings', async () => {
   const confirm = queryByTitle("confirm")
   fireEvent.click(confirm)
 
-  const slider1 = queryByTitle("slider1")
-  fireEvent.change(slider1, { target: { value: 5 } })
-  const slider2 = queryByTitle("slider2")
-  fireEvent.change(slider2, { target: { value: 5 } })
-  const slider3 = queryByTitle("slider3")
-  fireEvent.change(slider3, { target: { value: 5 } })
+  // const slider1 = queryByTitle("slider1")
+  // fireEvent.change(slider1, { target: { value: 5 } })
+  // const slider2 = queryByTitle("slider2")
+  // fireEvent.change(slider2, { target: { value: 5 } })
+  // const slider3 = queryByTitle("slider3")
+  // fireEvent.change(slider3, { target: { value: 5 } })
 
   const run = queryByTitle("run")
   fireEvent.click(run)
