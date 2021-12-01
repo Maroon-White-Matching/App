@@ -57,7 +57,7 @@ class Results extends React.Component {
             }
         }
         const resp = await fetch("https://maroon-white-backend.herokuapp.com/finalMatches", opts)
-        //const resp = await fetch("http://localhost:5000/finalMatches", opts)
+         //const resp = await fetch("http://localhost:5000/finalMatches", opts)
         const data = await resp.json()
         this.setState({
             id: data.id,
