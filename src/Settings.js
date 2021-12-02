@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-//import RangeSlider from 'react-bootstrap-range-slider';
+import RangeSlider from 'react-bootstrap-range-slider';
 import Alert from 'react-bootstrap/Alert'
 
 class Settings extends React.Component {
@@ -172,10 +172,36 @@ class Settings extends React.Component {
                 <h2>Settings</h2>
                 <br />
 
+                <br />
                 <Container style={{ maxWidth: '50%' }}>
+                    <h3>Challenge and Critical Reflection</h3>
+                    <RangeSlider
+                        title="slider1"
+                        value={this.state.value[0]}
+                        onChange={changeEvent => this.setValue(changeEvent.target.value, 0)}
+                        max='10'
+                        step={0.5}
+                    />
+                    <h3>Competence and Learning</h3>
+                    <RangeSlider
+                        title="slider2"
+                        value={this.state.value[1]}
+                        onChange={changeEvent => this.setValue(changeEvent.target.value, 1)}
+                        max='10'
+                        step={0.5}
+                    />
+                    <h3>Compatability and Relationship</h3>
+                    <RangeSlider
+                        title="slider3"
+                        value={this.state.value[2]}
+                        onChange={changeEvent => this.setValue(changeEvent.target.value, 2)}
+                        max='10'
+                        step={0.5}
+                    />
                     <Button variant="dark" title="run" onClick={() => this.runAlgo()}>Run Matching Algorithm</Button>
                     {this.displayError()}
                 </Container>
+                <br /> 
                 <br />
                 <br />
                 <Container>
