@@ -15,7 +15,7 @@ class HomePage extends React.Component {
                     <p style={{ fontSize: '25px', maxWidth: '60%' }}>
                         Welcome to the Maroon & White Leadership Program matching application!
                         Go to the stats tab to view results. Admins can go to the settings tab to
-                        run the algorythm or manage users. 
+                        run the algorithm or manage users. 
                     </p>
                 </div>
                 <br />
